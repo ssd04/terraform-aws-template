@@ -1,0 +1,11 @@
+/.terraform/*
+/init/.terraform/*
+**.tfstate
+**.backup
+**/.terraform/
+/modules/monitoring/lambda/
+lambdas/*/package
+lambdas/*/out
+lambdas/*/*.zip
+dev/*.backup
+prod/*.backup
