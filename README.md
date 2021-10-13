@@ -1,5 +1,15 @@
 # AWS Infrastructure
 
+This setup structure is useful for small to medium sized AWS projects, where
+prod and development/testing environments are handled in a different terraform
+state.
+
+Common terraform modules can be used both environments.
+
+It is important to find the right balance between the complexity and the level
+of abstractions created through modules. Use modules only when necessary (only
+when a clear pattern is repeated more than three times)
+
 ## Project structure
 
 - `dev` : terraform code -> dev env
@@ -8,39 +18,40 @@
 - `lambdas` : lambda projects code
 - `scripts` : useful scripts
 
+## Prerequisites
+
+- Linux environment
+- terraform
+- terraform-docs
+- make
+
 # AWS
 
-## AWS Resourses
+Decribe briefly the aws resources.
 
-### EC2
+## Compute resources
 
-### CICD Pipeline
+## Deployment
 
-### Beanstalk
+## Networking
 
-### Cognito
-
-### VPC
-
-### ACM/Route53
+## Security
 
 # Terraform
 
 > Please make sure to run the setup in the correct AWS account, check
 > AWS_PROFILE env variable
 
-One main advantage of using the Makefile is for making sure the command are run
+One main advantage of using the Makefile is for making sure the commands are run in
 the correct environment.
 
-- it can be triggered based on the command in the Makefile 
+There is a separate `Makefile` for each environment.
+
+Terraform can be triggered based on the commands in the Makefile 
 ```bash
 make init
 make plan
 make apply
-```
-- AWS Secrets are provided using pum python script (ADM authentication) 
-```bash
-make pum 
 ```
 
 ### Upgrade
