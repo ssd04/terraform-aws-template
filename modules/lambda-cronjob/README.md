@@ -12,7 +12,8 @@ Lambda with source code from local.
 
 ## Usage
 
-Create one budget for global cost.
+Simple example on how the module can be used.
+
 ```terraform
 module "test_lambda" {
   source = "./modules/test"
@@ -24,8 +25,8 @@ module "test_lambda" {
   filename = "test/test.zip"
   handler  = "test.handler"
 
-  subnet_ids         = data.aws_subnet_ids.private_subnets.ids
-  security_group_ids = [aws_security_group.lambda.id]
+  subnet_ids         = local.private_subnet_ids
+  security_group_ids = [local.security_group_ids]
 }
 ```
 
