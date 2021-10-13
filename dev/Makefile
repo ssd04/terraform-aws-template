@@ -8,8 +8,6 @@ aws_profile = "<< aws profile name >>"
 export AWS_PROFILE := $(aws_profile)
 aws_account_id = $(shell aws sts get-caller-identity | jq -r '.Account')
 
-python = $(shell which python3)
-
 TF_VERSION = 0.13.0
 #terraform = docker run -it --rm -v $(HOME):/root -v $(PWD):/workspace -w /workspace hashicorp/terraform:$(TF_VERSION)
 terraform = $(shell which terraform)
